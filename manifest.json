@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "Hubstaff Screenshot Checker",
+  "version": "1.4",
+  "description": "Compare Hubstaff screenshots using Gemini AI and flag low activity.",
+  "permissions": ["scripting", "activeTab", "storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Hubstaff Screenshot Checker"
+  }
+}

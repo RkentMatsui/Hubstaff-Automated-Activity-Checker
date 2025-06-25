@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    /* Popup styling */
+    body { font-family: sans-serif; padding: 10px; width: 260px; }
+    label { display: flex; justify-content: space-between; margin-bottom: 10px; }
+    input[type=number] { width: 60px; }
+    button { width: 100%; padding: 8px; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <h3>Gemini Screenshot Checker</h3>
+
+  <!-- Toggle for using Gemini API -->
+  <label>
+    Use Gemini API:
+    <input type="checkbox" id="geminiToggle" />
+  </label>
+
+  <!-- Threshold for total activity -->
+  <label>
+    Total activity &lt; 
+    <input type="number" id="totalThreshold" min="0" max="100" value="20" />%
+  </label>
+
+  <!-- Threshold for keyboard activity -->
+  <label>
+    Keyboard activity &lt;
+    <input type="number" id="keyboardThreshold" min="0" max="100" value="1" />%
+  </label>
+
+  <!-- Threshold for mouse activity -->
+  <label>
+    Mouse activity &gt;
+    <input type="number" id="mouseThreshold" min="0" max="100" value="0" />%
+  </label>
+
+  <!-- Button to run the screenshot check -->
+  <button id="runBtn">Run Screenshot Check</button>
+  <script src="popup.js"></script>
+</body>
+</html>
