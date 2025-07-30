@@ -94,6 +94,14 @@
       const img = container.querySelector("img");
       if (!img || !img.src) continue;
 
+      //Check for notes
+      if(config.notes) {
+        const noteButton = container.querySelector('.inline-link.clickable.text-success');
+        if(noteButton){
+          continue;
+        }
+      }
+
       // Read activity from data-original-title
       const progressEl = container.querySelector(".progress");
       const tooltip = progressEl?.getAttribute("data-original-title") || "";
@@ -170,13 +178,14 @@
 
   // Entry point: load config and run scan
   chrome.storage?.sync?.get(
-    ["useGemini", "totalThreshold", "keyboardThreshold", "mouseThreshold"],
-    async ({ useGemini, totalThreshold, keyboardThreshold, mouseThreshold }) => {
+    ["useGemini", "totalThreshold", "keyboardThreshold", "mouseThreshold","ignorewithNotes"],
+    async ({ useGemini, totalThreshold, keyboardThreshold, mouseThreshold,ignorewithNotes }) => {
       const config = {
         gemini: useGemini ?? true,
         total: parseInt(totalThreshold ?? 20),
         keyboard: parseInt(keyboardThreshold ?? 1),
         mouse: parseInt(mouseThreshold ?? 0),
+        notes: ignorewithNotes ?? true,
       };
 
       removeExistingNotes();
